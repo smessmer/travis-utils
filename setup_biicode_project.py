@@ -3,6 +3,8 @@
 import re, os, shutil, sys, subprocess
 
 SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
+BUILDFOLDER = sys.argv[1]
+
 
 def bii_user_project():
   biiconfig = open(os.path.join(SCRIPTDIR, 'biicode.conf'), 'r').read()
@@ -10,9 +12,19 @@ def bii_user_project():
   projectname = re.search('\[parent\]\n\s+[^/]+/([^:]+)', biiconfig).group(1)
   return (username, projectname)
 
-BUILDFOLDER = sys.argv[1]
+def setup_biicode():
+  subprocess.check_call(['wget', 'http://apt.biicode.com/install.sh'])
+  subprocess.check_call(['chmod', '+x', 'install.sh'])
+  subprocess.check_call(['./install.sh'])
+  subprocess.check_call(['bii', 'setup:cpp'])
+  subprocess.check_call(['bii', '--version'])
 
-(bii_username, bii_projectname) =  bii_user_project()
-subprocess.check_call(['bii', 'init', BUILDFOLDER])
-os.mkdir(os.path.join(BUILDFOLDER, 'blocks', bii_username))
-shutil.move(bii_projectname, os.path.join(BUILDFOLDER, 'blocks', bii_username))
+def setup_dir_structure():
+  (bii_username, bii_projectname) =  bii_user_project()
+  subprocess.check_call(['bii', 'init', BUILDFOLDER])
+  os.mkdir(os.path.join(BUILDFOLDER, 'blocks', bii_username))
+  shutil.move(bii_projectname, os.path.join(BUILDFOLDER, 'blocks', bii_username))
+
+
+setup_biicode()
+setup_dir_structure()
