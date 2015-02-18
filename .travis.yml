@@ -1,6 +1,11 @@
 script:
+  # Test install_boost script with some boost libraries
   - wget https://raw.githubusercontent.com/smessmer/travis-utils/master/install_boost.sh && source ./install_boost.sh libboost-filesystem1.55-dev libboost-system1.55-dev
+
+  # Test update_gcc_version.sh script
   - wget https://raw.githubusercontent.com/smessmer/travis-utils/master/update_gcc_version.sh && source ./update_gcc_version.sh 4.9
+
+  # Test setup_biicode_project.sh script. Using the example project at test/gituser/gitproject, it should set it up to a biicode block at biiuser/biiproject (because that's the names specified in biicode.conf)
   - cd test/gituser/gitproject
   - wget https://raw.githubusercontent.com/smessmer/travis-utils/master/setup_biicode_project.sh && source ./setup_biicode_project.sh
   - ./biiuser/biiproject/check_biicode_setup.py
