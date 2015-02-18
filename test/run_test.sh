@@ -2,4 +2,4 @@
 
 set -ev
 
-./$TESTCASE
+./test/$TESTCASE
