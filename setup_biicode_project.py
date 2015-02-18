@@ -20,6 +20,8 @@ def setup_dir_structure():
   (bii_username, bii_projectname) =  bii_user_project()
   git_projectname = os.path.basename(os.getcwd())
   os.chdir('..')
+  print "Directory:"
+  print os.getcwd()
   subprocess.check_call(['bii', 'init', BUILDFOLDER])
   os.mkdir(os.path.join(BUILDFOLDER, 'blocks', bii_username))
   shutil.move(git_projectname, os.path.join(BUILDFOLDER, 'blocks', bii_username, bii_projectname))

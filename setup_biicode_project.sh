@@ -9,4 +9,5 @@ wget -P "$SCRIPT_DIR" https://raw.githubusercontent.com/smessmer/travis-utils/ma
 chmod +x $SCRIPT_DIR/setup_biicode_project.py
 
 $SCRIPT_DIR/setup_biicode_project.py $BUILDFOLDER
-cd ../$BUILDFOLDER
+cd ../../..
+pwd
