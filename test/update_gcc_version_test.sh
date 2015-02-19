@@ -2,4 +2,4 @@
 
 set -ev
 
-source ./update_gcc_version.sh 4.9
+./update_gcc_version.sh 4.9
