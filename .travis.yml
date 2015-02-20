@@ -5,4 +5,4 @@ env:
   - TESTCASE=install_boost_test.sh
   - TESTCASE=update_gcc_version_test.sh
   - TESTCASE=setup_biicode_project_test.sh
-
+  - TESTCASE=run_with_fuse.sh
