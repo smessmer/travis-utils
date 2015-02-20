@@ -19,7 +19,7 @@ def setup_biicode():
 
 def setup_dir_structure():
   (bii_username, bii_projectname) =  bii_user_project()
-  print "Recognized biicode project {bii_username}/{bii_projectname}"
+  print "Recognized biicode project %s/%s" % (bii_username, bii_projectname)
   git_projectname = os.path.basename(os.getcwd())
   os.chdir('..')
   subprocess.check_call(['bii', 'init', BUILDFOLDER])
