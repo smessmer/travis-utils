@@ -16,6 +16,7 @@ def bii_user_project():
 def setup_biicode():
   subprocess.check_call(['wget', 'http://apt.biicode.com/install.sh'])
   subprocess.check_call(['/bin/bash', './install.sh'])
+  os.remove('install.sh') # cleanup downloaded bash script
   subprocess.check_call(['bii', 'setup:cpp'])
   print "Installed biicode version:"
   subprocess.check_call(['bii', '--version'])
