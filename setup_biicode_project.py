@@ -2,6 +2,9 @@
 
 import re, os, shutil, sys, subprocess
 
+# TODO: This script can't work with biicode blocks that don't have a [parent] set in biicode.conf
+# TODO: This script doesn't work when there are comments in the [parent] section of biicode.conf
+
 BUILDFOLDER = "travisbuild"
 
 def bii_user_project():
