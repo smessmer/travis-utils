@@ -14,17 +14,18 @@ def setup_biicode():
   subprocess.check_call(['wget', 'http://apt.biicode.com/install.sh'])
   subprocess.check_call(['/bin/bash', './install.sh'])
   subprocess.check_call(['bii', 'setup:cpp'])
+  print "Installed biicode version:"
   subprocess.check_call(['bii', '--version'])
 
 def setup_dir_structure():
   (bii_username, bii_projectname) =  bii_user_project()
+  print "Recognized biicode project {bii_username}/{bii_projectname}"
   git_projectname = os.path.basename(os.getcwd())
   os.chdir('..')
   subprocess.check_call(['bii', 'init', BUILDFOLDER])
   os.mkdir(os.path.join(BUILDFOLDER, 'blocks', bii_username))
   shutil.move(git_projectname, os.path.join(BUILDFOLDER, 'blocks', bii_username, bii_projectname))
-  print "Setup biicode project {bii_username}/{bii_projectname}"
-
+  print "Finished setting up biicode project"
 
 setup_biicode()
 setup_dir_structure()
