@@ -29,6 +29,7 @@ def setup_dir_structure():
   subprocess.check_call(['bii', 'init', BUILDFOLDER])
   subprocess.check_call(['ls','-l'])
   subprocess.check_call(['pwd'])
+  os.mkdir(os.path.join(BUILDFOLDER, 'blocks'))
   os.mkdir(os.path.join(BUILDFOLDER, 'blocks', bii_username))
   shutil.move(git_projectname, os.path.join(BUILDFOLDER, 'blocks', bii_username, bii_projectname))
   print "Finished setting up biicode project"
