@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ev
+set -e
 
 # Install biicode
 wget http://apt.biicode.com/install.sh
@@ -12,6 +12,3 @@ bii setup:cpp
 # Init project
 bii init -l
 bii find
-
-# unset options from above, in case this script is called with "source"
-set +v
