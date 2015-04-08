@@ -1,3 +1,4 @@
+sudo: required
 script:
   - ./test/run_test.sh
 
