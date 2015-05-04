@@ -24,6 +24,8 @@ EOF
 
 chmod +x umltest.inner.sh
 
-/usr/bin/linux.uml init=`pwd`/umltest.inner.sh mem=1G rootfstype=hostfs rw
+# Running it with 1G doesn't work due to a bug (see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=559622)
+#/usr/bin/linux.uml init=`pwd`/umltest.inner.sh mem=1G rootfstype=hostfs rw
+/usr/bin/linux.uml init=`pwd`/umltest.inner.sh mem=503M rootfstype=hostfs rw
 
 exit $(<umltest.status)
