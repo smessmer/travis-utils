@@ -16,8 +16,6 @@ cat > umltest.inner.sh <<EOF
    set -e
    insmod /usr/lib/uml/modules/\`uname -r\`/kernel/fs/fuse/fuse.ko
    cd "$CURDIR"
-   pwd
-   ls -l
    $@
 )
 echo "\$?" > "$CURDIR"/umltest.status
@@ -26,6 +24,6 @@ EOF
 
 chmod +x umltest.inner.sh
 
-/usr/bin/linux.uml init=`pwd`/umltest.inner.sh rootfstype=hostfs rw
+/usr/bin/linux.uml init=`pwd`/umltest.inner.sh mem=1G rootfstype=hostfs rw
 
 exit $(<umltest.status)
